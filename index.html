@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tembalang Service Hub - Info Layanan Mahasiswa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Tembalang Service Hub</h1>
+    <p>Web sederhana untuk membantu mahasiswa Tembalang menemukan info jasa antar jemput, jasa titip/suruh, kost, dan jasa beberes dengan lebih mudah.</p>
+  </header>
+
+  <main class="container">
+    <section class="page active" id="page-profile">
+      <nav>
+        <div class="badge">Halaman 1: Profil</div>
+        <button class="nav-button" onclick="showPage('page-dashboard')">Buka Dashboard</button>
+      </nav>
+
+      <div class="banner">
+        <div>
+          <h2>Profil Web</h2>
+          <p>Selamat datang di Tembalang Service Hub. Situs ini berfungsi sebagai pusat informasi untuk mahasiswa Tembalang yang butuh layanan antar jemput, titip/suruh, info kost, dan jasa beberes.</p>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <strong>4</strong>
+            Kategori layanan
+          </div>
+          <div class="stat">
+            <strong>10+</strong>
+            Akun rekomendasi
+          </div>
+          <div class="stat">
+            <strong>Local</strong>
+            Fokus Tembalang
+          </div>
+        </div>
+      </div>
+
+      <div class="card-grid" style="margin-top:24px;">
+        <div class="card">
+          <div class="card-illustration"><span>🚕 Antar Jemput</span></div>
+          <div class="card-body">
+            <h3>Antar Jemput</h3>
+            <p>Layanan antar jemput khusus mahasiswa Tembalang. Temukan info profil dan media sosial penyedia jasa pada halaman detail.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-illustration"><span>📦 Jasa Titip / Suruh</span></div>
+          <div class="card-body">
+            <h3>Jasa Titip / Suruh</h3>
+            <p>Jasa titip atau suruh untuk membantu kirim barang dan pesan kebutuhan kampus dengan kontak yang mudah diakses.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-illustration"><span>🏠 Info Kost</span></div>
+          <div class="card-body">
+            <h3>Info Kost</h3>
+            <p>Info kost dan rekomendasi kosan di sekitar Tembalang. Cek profil penyedia info kost lengkap di halaman detail.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-illustration"><span>🧹 Jasa Bebersih</span></div>
+          <div class="card-body">
+            <h3>Jasa Bebersih</h3>
+            <p>Info penyedia jasa bersih-bersih untuk kamar kost dan kosan. Detail kontak ada di halaman layanan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-dashboard">
+      <nav>
+        <button class="nav-button" onclick="showPage('page-profile')">Kembali ke Profil</button>
+        <div class="badge">Halaman 2: Dashboard</div>
+      </nav>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-illustration"><span>🚕</span></div>
+          <div class="card-body">
+            <h3>Antar Jemput</h3>
+            <p>Temukan layanan antar jemput yang melayani mahasiswa di area Tembalang.</p>
+            <button class="button" onclick="showPage('page-anjem')">Buka Antar Jemput</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-illustration"><span>📦</span></div>
+          <div class="card-body">
+            <h3>Jasa Titip / Suruh</h3>
+            <p>Detail kontak dan profil penyedia jasa titip atau jasa suruh untuk mahasiswa.</p>
+            <button class="button" onclick="showPage('page-jastip')">Buka Jasa Titip / Suruh</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-illustration"><span>🏠</span></div>
+          <div class="card-body">
+            <h3>Info Kost</h3>
+            <p>Info kost, rekomendasi kamar, dan akun penyedia info kost di Tembalang.</p>
+            <button class="button" onclick="showPage('page-kost')">Buka Info Kost</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-illustration"><span>🧹</span></div>
+          <div class="card-body">
+            <h3>Jasa Bebersih</h3>
+            <p>Detail layanan jasa bersih-bersih untuk kost atau kontrakan mahasiswa.</p>
+            <button class="button" onclick="showPage('page-beberes')">Buka Jasa Bebersih</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reminder-box">
+        <h2>Reminder Pesanan</h2>
+        <p>Catat apakah kamu sudah memesan layanan atau belum. Reminder akan tersimpan di browser.</p>
+        <div class="reminder-input">
+          <input id="reminderText" type="text" placeholder="Contoh: pesan antar jemput untuk besok" />
+          <button class="button" onclick="addReminder()">Tambah Reminder</button>
+        </div>
+        <ul class="reminder-list" id="reminderList"></ul>
+      </div>
+    </section>
+
+    <section class="page" id="page-anjem">
+      <nav>
+        <button class="nav-button" onclick="showPage('page-dashboard')">Kembali ke Dashboard</button>
+        <div class="badge">Halaman 3: Antar Jemput</div>
+      </nav>
+
+      <div class="note-box">
+        <strong>Informasi Antar Jemput</strong>
+        <p>Profil layanan antar jemput untuk mahasiswa Tembalang. Gunakan kontak berikut untuk melihat penawaran dan ketersediaan.</p>
+      </div>
+      <ul class="info-list">
+        <li>
+          <strong>Antar Jemput Tembalang</strong>
+          <p>Jasa antar jemput lokal yang fokus melayani mahasiswa dan penghuni kos di area Tembalang.</p>
+          <p>Platform: Instagram, TikTok</p>
+          <p>Instagram: <a href="https://www.instagram.com/anjemtembalang" target="_blank">@anjemtembalang</a></p>
+          <p>TikTok: <a href="https://www.tiktok.com/@anjem.tembalang" target="_blank">@anjem.tembalang</a></p>
+          <p>Nomor kontak: belum tersedia, silakan DM untuk penawaran.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="page" id="page-jastip">
+      <nav>
+        <button class="nav-button" onclick="showPage('page-dashboard')">Kembali ke Dashboard</button>
+        <div class="badge">Halaman 4: Jasa Titip / Suruh</div>
+      </nav>
+
+      <div class="note-box">
+        <strong>Informasi Jasa Titip / Suruh</strong>
+        <p>Profil penyedia jasa titip dan jasa suruh di area Tembalang untuk kebutuhan pengiriman atau pembelian barang.</p>
+      </div>
+      <ul class="info-list">
+        <li>
+          <strong>JASTIP Dipo</strong>
+          <p>Layanan titip belanja dan pengambilan barang di sekitar Semarang, termasuk Tembalang.</p>
+          <p>Instagram: <a href="https://www.instagram.com/jastipdipo" target="_blank">@jastipdipo</a></p>
+          <p>Nomor kontak: belum tersedia, gunakan DM Instagram untuk pesan.</p>
+        </li>
+        <li>
+          <strong>Jasa Suruh SMG</strong>
+          <p>Penyedia jasa suruh yang membantu antar barang, belanja, dan pengantaran kecil untuk mahasiswa.</p>
+          <p>TikTok: <a href="https://www.tiktok.com/@jasasuruh.smg" target="_blank">@jasasuruh.smg</a></p>
+          <p>Nomor kontak: belum tersedia, silakan hubungi lewat TikTok atau Instagram.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="page" id="page-kost">
+      <nav>
+        <button class="nav-button" onclick="showPage('page-dashboard')">Kembali ke Dashboard</button>
+        <div class="badge">Halaman 5: Info Kost</div>
+      </nav>
+
+      <div class="note-box">
+        <strong>Informasi Kost Tembalang</strong>
+        <p>Info profil akun yang menyajikan rekomendasi kost dan kamar kost dekat kampus di wilayah Tembalang.</p>
+      </div>
+      <ul class="info-list">
+        <li>
+          <strong>Jastip Kostan</strong>
+          <p>Akun Instagram yang berbagi rekomendasi kost, harga, dan fasilitas kosan di Tembalang.</p>
+          <p>Instagram: <a href="https://www.instagram.com/jastipkostan" target="_blank">@jastipkostan</a></p>
+          <p>Nomor kontak: belum tersedia, cek DM Instagram untuk keterangan lebih lanjut.</p>
+        </li>
+        <li>
+          <strong>Kost Tembalang ID</strong>
+          <p>Akun Instagram khusus info kost di area Tembalang lengkap dengan update kamar kosong.</p>
+          <p>Instagram: <a href="https://www.instagram.com/kosttembalang.id" target="_blank">@kosttembalang.id</a></p>
+        </li>
+        <li>
+          <strong>Info Kost Tembalang</strong>
+          <p>Akun Instagram dan TikTok yang membantu mahasiswa menemukan kost nyaman di sekitar Tembalang.</p>
+          <p>Instagram: <a href="https://www.instagram.com/infokosttembalang" target="_blank">@infokosttembalang</a></p>
+          <p>TikTok: <a href="https://www.tiktok.com/@jastipkostann" target="_blank">@jastipkostann</a>, <a href="https://www.tiktok.com/@surveikosttembalang" target="_blank">@surveikosttembalang</a>, <a href="https://www.tiktok.com/@kostan.tembalang" target="_blank">@kostan.tembalang</a></p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="page" id="page-beberes">
+      <nav>
+        <button class="nav-button" onclick="showPage('page-dashboard')">Kembali ke Dashboard</button>
+        <div class="badge">Halaman 6: Jasa Bebersih</div>
+      </nav>
+
+      <div class="note-box">
+        <strong>Informasi Jasa Bebersih</strong>
+        <p>Profil penyedia jasa bersih-bersih lokal yang siap membantu kebersihan kost dan kamar mahasiswa.</p>
+      </div>
+      <ul class="info-list">
+        <li>
+          <strong>Klinik Resik</strong>
+          <p>Layanan bersih-bersih profesional untuk kontrakan dan kost di Semarang, termasuk Tembalang.</p>
+          <p>Instagram: <a href="https://www.instagram.com/klinikresik88" target="_blank">@klinikresik88</a></p>
+          <p>Nomor kontak: belum tersedia, cek DM Instagram untuk pesan layanan.</p>
+        </li>
+        <li>
+          <strong>RCR Indonesia</strong>
+          <p>Penyedia layanan beberes untuk kamar kos dan rumah mahasiswa. Fokus kebersihan dan kerapihan.</p>
+          <p>Instagram: <a href="https://www.instagram.com/rcrindonesia" target="_blank">@rcrindonesia</a></p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Dibuat untuk memudahkan mahasiswa Tembalang menemukan info layanan lokal. Buka `index.html` di browser untuk menjalankan.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
